@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIM Cybersecurity & Risk Management Track Timeline</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            padding: 2rem;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #E21833;
+            text-align: center;
+            margin-bottom: 0.5rem;
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem;
+            font-size: 1.2rem;
+            font-weight: 400;
+        }
+
+        .timeline {
+            position: relative;
+        }
+
+        .year-section {
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .year-header {
+            background: linear-gradient(135deg, #E21833 0%, #c41429 100%);
+            color: #ffffff;
+            padding: 1.25rem 1.75rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(226, 24, 51, 0.25);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .year-header:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(226, 24, 51, 0.35);
+        }
+
+        .year-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+        }
+
+        .credits-badge {
+            background-color: #FFD200;
+            color: #000000;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            box-shadow: 0 2px 8px rgba(255, 210, 0, 0.3);
+        }
+
+        .semesters {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            padding-left: 0;
+        }
+
+        .semester-card {
+            background: #ffffff;
+            border: none;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .semester-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #E21833 0%, #FFD200 100%);
+        }
+
+        .semester-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .semester-title {
+            color: #E21833;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid #FFD200;
+        }
+
+        .course-list {
+            list-style: none;
+        }
+
+        .course-item {
+            padding: 0.75rem 1rem;
+            margin-bottom: 0.75rem;
+            background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+            border-left: 4px solid #FFD200;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .course-item:hover {
+            background: linear-gradient(135deg, #fff9e6 0%, #fff4d6 100%);
+            border-left-color: #E21833;
+            transform: translateX(4px);
+        }
+
+        .course-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .course-code {
+            font-weight: 700;
+            color: #E21833;
+            font-size: 1.05rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .course-note {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .total-credits {
+            background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+            color: #FFD200;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 3rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .semesters {
+                grid-template-columns: 1fr;
+            }
+
+            .year-header {
+                padding: 1rem 1.25rem;
+            }
+
+            .year-title {
+                font-size: 1.3rem;
+            }
+
+            .credits-badge {
+                font-size: 0.85rem;
+                padding: 0.4rem 0.8rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .year-section {
+                animation: none;
+            }
+
+            .year-header:hover,
+            .semester-card:hover,
+            .course-item:hover {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>MIM Cybersecurity &amp; Risk Management Track</h1>
+        <p class="subtitle">Master of Information Management Course Timeline</p>
+
+        <div class="timeline">
+            <!-- Junior Year -->
+            <div class="year-section">
+                <div class="year-header">
+                    <span class="year-title">Junior Year</span>
+                    <span class="credits-badge">6 Graduate Credits</span>
+                </div>
+                <div class="semesters">
+                    <div class="semester-card">
+                        <div class="semester-title">Fall Semester</div>
+                        <ul class="course-list">
+                            <li class="course-item">
+                                <div class="course-code">INFM600</div>
+                                <div class="course-note">Information Management Ecosystems</div>
+                            </li>
+                            <li class="course-item">
+                                <div class="course-note">+ Undergraduate Courses</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="semester-card">
+                        <div class="semester-title">Spring Semester</div>
+                        <ul class="course-list">
+                            <li class="course-item">
+                                <div class="course-code">MIM Elective</div>
+                            </li>
+                            <li class="course-item">
+                                <div class="course-note">+ Undergraduate Courses</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Senior Year -->
+            <div class="year-section">
+                <div class="year-header">
+                    <span class="year-title">Senior Year</span>
+                    <span class="credits-badge">6 Graduate Credits</span>
+                </div>
+                <div class="semesters">
+                    <div class="semester-card">
+                        <div class="semester-title">Fall Semester</div>
+                        <ul class="course-list">
+                            <li class="course-item">
+                                <div class="course-code">INST771</div>
+                                <div class="course-note">Cybersecurity Risk Management</div>
+                            </li>
+                            <li class="course-item">
+                                <div class="course-note">+ Undergraduate Courses</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="semester-card">
+                        <div class="semester-title">Spring Semester</div>
+                        <ul class="course-list">
+                            <li class="course-item">
+                                <div class="course-code">INST726</div>
+                                <div class="course-note">Information Governance</div>
+                            </li>
+                            <li class="course-item">
+                                <div class="course-note">+ Undergraduate Courses</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Summer -->
+            <div class="year-section">
+                <div class="year-header">
+                    <span class="year-title">Summer Session</span>
+                    <span class="credits-badge">3 Credits</span>
+                </div>
+                <div class="semesters">
+                    <div class="semester-card">
+                        <div class="semester-title">Summer</div>
+                        <ul class="course-list">
+                            <li class="course-item">
+                                <div class="course-code">Graduate Elective</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Final Year -->
+            <div class="year-section">
+                <div class="year-header">
+                    <span class="year-title">Final Year</span>
+                    <span class="credits-badge">21 Credits</span>
+                </div>
+                <div class="semesters">
+                    <div class="semester-card">
+                        <div class="semester-title">Fall Semester</div>
+                        <ul class="course-list">
+                            <li class="course-item">
+                                <div class="course-code">INST756</div>
+                                <div class="course-note">Information Risk Management</div>
+                            </li>
+                            <li class="course-item">
+                                <div class="course-code">INST###</div>
+                                <div class="course-note">Human-Centered Cybersecurity</div>
+                            </li>
+                            <li class="course-item">
+                                <div class="course-code">MIM Elective</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="semester-card">
+                        <div class="semester-title">Winter Session</div>
+                        <ul class="course-list">
+                            <li class="course-item">
+                                <div class="course-code">INST633</div>
+                                <div class="course-note">MIM Elective</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="semester-card">
+                        <div class="semester-title">Spring Semester</div>
+                        <ul class="course-list">
+                            <li class="course-item">
+                                <div class="course-code">INFM737</div>
+                                <div class="course-note">Capstone</div>
+                            </li>
+                            <li class="course-item">
+                                <div class="course-code">INST663</div>
+                                <div class="course-note">Network Infrastructure</div>
+                            </li>
+                            <li class="course-item">
+                                <div class="course-code">INST664</div>
+                                <div class="course-note">Cyberdefense and Ethical Hacking</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="total-credits">
+            Total Program: 36 Graduate Credits
+        </div>
+    </div>
+</body>
+</html>
